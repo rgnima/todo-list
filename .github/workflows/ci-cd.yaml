@@ -36,6 +36,12 @@ jobs:
       - name: Push Docker Image
         run: |
           docker push ${{ secrets.DOCKER_USERNAME }}/todo-list:latest
+      # azure login    
+      - name: Log in to Azure
+        uses: azure/login@v1
+        with:
+          creds: ${{ secrets.AZURE_CREDENTIALS }}  # Azure service principal credentials as a secret
+    
       # Deploy to AKS
       - uses: Azure/aks-set-context@v4
         with:
