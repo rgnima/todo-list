@@ -54,7 +54,7 @@ jobs:
           action: deploy
           manifests: |
             k8s/01-deploy-db.yml
-            k8s/02-service-db.yml
+#            k8s/02-service-db.yml
 #            k8s/03-deploy-app.yml
 #            k8s/04-service-app.yml
       
