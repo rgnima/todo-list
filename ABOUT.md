@@ -1,8 +1,8 @@
 
-### Requisitos Previos
+### Requisitos Previos ###
 
-- Node.js (versión 18 o superior) instalado en tu sistema.
-- MySQL instalado y configurado localmente, contenedor o acceso a una instancia remota.
+- Node.js (versión 18 o superior) instalado en tu sistema .
+- MySQL 8 instalado y configurado localmente, contenedor o acceso a una instancia remota.
 
 ### Pasos a Seguir
 
