@@ -6,7 +6,7 @@ spec:
   ports:
   - protocol: TCP
     port: 80
-    targetPort: http
+    targetPort: 3000
   selector:
     app: todo-list
   type: LoadBalancer

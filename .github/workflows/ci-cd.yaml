@@ -61,6 +61,6 @@ jobs:
           manifests: |
             k8s/01-deploy-db.yaml
             k8s/02-service-db.yaml
-#            k8s/03-deploy-app.yaml
-#            k8s/04-service-app.yaml
+            k8s/03-deploy-app.yaml
+            k8s/04-service-app.yaml
       
