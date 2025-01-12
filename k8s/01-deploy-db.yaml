@@ -20,6 +20,8 @@ spec:
           env:
             - name: MYSQL_ROOT_PASSWORD
               value: ${{ secrets.ROOT_PASSWORD }}
+            - name: MYSQL_DATABASE
+              value: ${{ secrets.MYSQL_DB }}  
           ports:
             - containerPort: 3306
               name: mysql
