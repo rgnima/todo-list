@@ -1,0 +1,38 @@
+name: Docker Build and Push
+
+on:
+  push:
+    branches:
+      - main  # Trigger the workflow when changes are pushed to the `main` branch.
+
+jobs:
+  build-and-push:
+    runs-on: ubuntu-latest
+
+    steps:
+      # Step 1: Checkout the repository
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      # Step 2: Log in to Docker Hub
+      - name: Log in to Docker Hub
+        uses: docker/login-action@v2
+        with:
+          username: ${{ secrets.DOCKER_USERNAME }}  # Docker Hub username stored as a secret
+          password: ${{ secrets.DOCKER_PASSWORD }}  # Docker Hub password stored as a secret
+
+      # Step 3: Set up Node.js (optional, for build prerequisites)
+      - name: Set up Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '20-alpine' # Specify Node.js version
+
+      # Step 4: Build the Docker image
+      - name: Build Docker Image
+        run: |
+          docker build -t ${{ secrets.DOCKER_USERNAME }}/todo-list:latest ../todo-list/Dockerfile
+
+      # Step 5: Push the Docker image to Docker Hub
+      - name: Push Docker Image
+        run: |
+          docker push ${{ secrets.DOCKER_USERNAME }}/todo-list:latest
