@@ -19,6 +19,6 @@ spec:
           image: mysql:8.0
           env:
             - name: MYSQL_ROOT_PASSWORD
-              value: "password1"
+              value: '${{ secrets.ROOT_PASSWORD }}'
             - name: MYSQL_DATABASE
-              value: "todos"    
+              value: '${{ secrets.MYSQL_DB }}'    
