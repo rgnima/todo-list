@@ -22,10 +22,10 @@ spec:
         - containerPort: 3000
         env:    
         - name: MYSQL_HOST
-          value: '${{ secrets.MYSQL_HOST }}'
+          value: "${{ secrets.MYSQL_HOST }}"
         - name: MYSQL_USER
-          value: '${{ secrets.MYSQL_USER }}'
+          value: "${{ secrets.MYSQL_USER }}"
         - name: MYSQL_PASSWORD
-          value: '${{ secrets.ROOT_PASSWORD }}'
+          value: "${{ secrets.ROOT_PASSWORD }}"
         - name: MYSQL_DB
-          value: '${{ secrets.MYSQL_DB }}'
+          value: "${{ secrets.MYSQL_DB }}"
