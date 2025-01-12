@@ -19,6 +19,12 @@ spec:
           image: mysql:8.0
           env:
             - name: MYSQL_ROOT_PASSWORD
-              value: "${{ secrets.ROOT_PASSWORD }}"
+              valueFrom:
+                secretKeyRef:
+                  name: mysql-secret
+                  key: MYSQL_ROOT_PASSWORD
             - name: MYSQL_DATABASE
-              value: "${{ secrets.MYSQL_DB }}" 
+              valueFrom: 
+                secretKeyRef:
+                  name: mysql-secret
+                  key: MYSQL_DATABASE 
