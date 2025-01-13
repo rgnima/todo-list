@@ -21,5 +21,5 @@ spec:
             - name: MYSQL_ROOT_PASSWORD
               value: "password1"
             - name: MYSQL_DATABASE
-              value: "${{ secrets.MYSQL_DB }}"
+              value: ${{ secrets.MYSQL_DB }}
                 
