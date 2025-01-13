@@ -8,7 +8,12 @@ on:
 jobs:
   build-and-push:
     runs-on: ubuntu-latest
-
+    env:
+      MYSQL_ROOT_PASSWORD: ${{ secrets.ROOT_PASSWORD }}
+      MYSQL_DB: ${{ secrets.MYSQL_DB }}
+      MYSQL_USER: ${{ secrets.MYSQL_USER }}
+      MYSQL_HOST: ${{ secrets.MYSQL_HOST }}
+        
     steps:
       # Step 1: Checkout the repository
       - name: Checkout code
@@ -55,11 +60,18 @@ jobs:
         run: |
           az aks get-credentials --resource-group ${{ secrets.RESOURCE_GROUP }} --name ${{ secrets.AZURE_AKS_CLUSTER_NAME }}
       
+      - name: Create MySQL Secrets
+        run: |
+          kubectl create secret generic mysql-secret \
+          --from-literal=MYSQL_ROOT_PASSWORD=$MYSQL_ROOT_PASSWORD \
+          --from-literal=MYSQL_DB=$MYSQL_DB \
+          --from-literal=MYSQL_USER=$MYSQL_USER \
+          --from-literal=MYSQL_HOST=$MYSQL_HOST
+
       - uses: Azure/k8s-deploy@v5
         with:
           action: deploy
-          manifests: |
-            k8s/00-secrets.yaml          
+          manifests: |          
             k8s/01-deploy-db.yaml
             k8s/02-service-db.yaml
             k8s/03-deploy-app.yaml
