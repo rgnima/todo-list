@@ -62,12 +62,8 @@ jobs:
       
       - name: Create NS for app
         run: |
-          if kubectl get namespace todo > /dev/null 2>&1; then
-              echo "App Namespace already exists."
-          else
-              # Create the namespace              
-              kubectl create namespace todo
-
+          chmod +x k8s/sc-create-ns.sh
+          ./k8s/sc-create-ns.sh
       - name: Create MySQL Secrets
         run: |
           kubectl -n todo create secret generic mysql-secret \
