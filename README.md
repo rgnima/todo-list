@@ -1,6 +1,6 @@
 ### Proyecto Final: Todo-List App con Enfoque DevOps
 
-#### Descripción del Proyecto
+#### Descripción del Proyecto todo-list
 El proyecto consiste en una aplicación tipo "Todo-List" utilizando tecnologías modernas de desarrollo web y operaciones de infraestructura, con un enfoque específico en DevOps. La aplicación estará compuesta por un backend Node.js con Express y una base de datos MySQL. Utilizaremos herramientas como Terraform para la infraestructura como código (IaC), CI/CD para automatización del flujo de trabajo, contenedores Docker para la portabilidad y Kubernetes para la orquestación de contenedores. Además, se incorporarán prácticas de observabilidad para garantizar la monitorización y la resolución proactiva de problemas.
 
 ![](./docs/1.png)
@@ -18,7 +18,7 @@ El proyecto consiste en una aplicación tipo "Todo-List" utilizando tecnologías
    - Nombre de la bases de datos: todos
 
 #### Objetivos DevOps:
-El objetivo principal es implementar un flujo de trabajo DevOps completo para el proyecto Avatares. Esto incluye:
+El objetivo principal es implementar un flujo de trabajo DevOps completo para el proyecto todo-list. Esto incluye:
 
 1. **Infraestructura como Código (IaC) con Terraform:**
    - Utilizar Terraform para definir y aprovisionar la infraestructura necesaria, como servidores, cluster, redes, bases de datos, etc.
