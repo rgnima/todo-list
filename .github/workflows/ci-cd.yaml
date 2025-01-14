@@ -62,7 +62,7 @@ jobs:
       
       - name: Create NS for app
         run: |
-          chmod +x k8s/sc-create-ns.sh
+          chmod +x k8s/sct-create-ns.sh
           ./k8s/sct-create-ns.sh
       - name: Create MySQL Secrets
         run: |
