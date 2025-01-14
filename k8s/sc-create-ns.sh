@@ -1,4 +1,4 @@
 if kubectl get namespace todo > /dev/null 2>&1; then
-    echo "App Namespace already exists."
+	echo "App Namespace already exists."
 else
-    kubectl create namespace todo
+   kubectl create namespace todo
