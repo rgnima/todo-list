@@ -84,8 +84,8 @@ jobs:
       - name: Deploy Prometheus and Grafana
         uses: Azure/k8s-deploy@v5
         with:
-              action: deploy
-              namespace: monitoring
-              manifests: |
-                k8s/05-deploy-prometheus.yaml
-                k8s/06-deploy-grafana.yaml
+          action: deploy
+          namespace: monitoring
+          manifests: |
+            k8s/05-deploy-prometheus.yaml
+            k8s/06-deploy-grafana.yaml
