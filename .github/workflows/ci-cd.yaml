@@ -72,6 +72,7 @@ jobs:
       - uses: Azure/k8s-deploy@v5
         with:
           action: deploy
+          namespace: todo
           manifests: |
             k8s/00-create-ns.yaml          
             k8s/01-deploy-db.yaml
