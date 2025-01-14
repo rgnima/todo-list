@@ -1,0 +1,6 @@
+# Set text files to use LF in the repository
+* text=auto
+
+# Explicitly define line endings for specific file types
+*.sh text eol=lf
+*.bat text eol=crlf
