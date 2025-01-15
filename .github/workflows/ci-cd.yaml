@@ -64,6 +64,7 @@ jobs:
         run: |
           chmod +x k8s/sct-create-ns.sh
           ./k8s/sct-create-ns.sh
+
       - name: Create MySQL Secrets
         run: |
           kubectl -n todo create secret generic mysql-secret \
@@ -83,12 +84,17 @@ jobs:
             k8s/02-service-db.yaml
             k8s/03-deploy-app.yaml
             k8s/04-service-app.yaml            
-
-      - name: Deploy Prometheus and Grafana
-        uses: deliverybot/helm@v1
+      
+      - name: Install Helm v3.10.1
+        uses: azure/setup-helm@v4.2.0
         with:
-          release: prometheus
-          namespace: prometheus
-          chart: prometheus prometheus-community/kube-prometheus-stack
-          token: ${{ github.token }}
+          version: 'v3.10.1' # default is latest (stable)
+        id: install      
+
+      - name: Deploy Prometheus and Grafana 
+        run: |
+          helm repo add prometheus-community https://prometheus-community.github.io/helm-charts
+          helm repo update
+          helm install prometheus prometheus-community/kube-prometheus-stack -n prometheus
+          
             
