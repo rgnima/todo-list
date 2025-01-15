@@ -93,10 +93,13 @@ jobs:
 
       - name: Deploy Prometheus and Grafana 
         run: |
-          helm repo add prometheus-community https://prometheus-community.github.io/helm-charts
-          helm repo update
-          helm install prometheus prometheus-community/kube-prometheus-stack -n prometheus
-          
+          if helm status prometheus -n prometheus >/dev/null 2>&1; then
+            echo "Prometheus is already installed"
+          else
+            helm repo add prometheus-community https://prometheus-community.github.io/helm-charts
+            helm repo update
+            helm install prometheus prometheus-community/kube-prometheus-stack -n prometheus
+          fi
       - name: Deploy Grafana Service
         uses: Azure/k8s-deploy@v5
         with:
