@@ -97,4 +97,10 @@ jobs:
           helm repo update
           helm install prometheus prometheus-community/kube-prometheus-stack -n prometheus
           
-            
+      - name: Deploy Grafana Service
+        uses: Azure/k8s-deploy@v5
+        with:
+          action: deploy
+          namespace: prometheus
+          manifests: |
+            k8s/05-service-grafana.yaml
