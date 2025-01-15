@@ -85,10 +85,10 @@ jobs:
             k8s/04-service-app.yaml            
 
       - name: Deploy Prometheus and Grafana
-        uses: Azure/k8s-deploy@v5
+        uses: deliverybot/helm@v1
         with:
-          action: deploy
-          namespace: monitoring
-          manifests: |
-            k8s/05-deploy-prometheus.yaml
-            k8s/06-deploy-grafana.yaml
+          release: prometheus
+          namespace: prometheus
+          chart: prometheus prometheus-community/kube-prometheus-stack
+          token: ${{ github.token }}
+            

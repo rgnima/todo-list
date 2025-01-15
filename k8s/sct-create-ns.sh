@@ -8,5 +8,5 @@ fi
 if kubectl get namespace monitoring > /dev/null 2>&1; then
    echo "Monitoring Namespace already exists."
 else
-   kubectl create namespace monitoring
+   kubectl create namespace prometheus
 fi
