@@ -7,11 +7,15 @@
 ### Observabilidad => Prometheus y Grafana
 ### Otros: shell scripts, Helm
 
-## Notas Impotantes
-### Se ha utilizado github secrets para resguardar datos sensibles como los datos del service principal (clentID, clientSecret), SQL password, SQL DB, SQL user y otros como suscripción, tenantID.
-### Aplicación: Se han utilizado manifiestos de yaml para el despliegue de la BD y la aplicación en su respectivo namespace (todo)
-### Prometeus y Grafana: Han sido desplegados con el uso de Helm
-### Se ha utilizado el dashboad ID: 18283 para mostrar las métricas del AKS.
+## Notas Importantes
+### Se ha utilizado github secrets para resguardar datos sensibles como los datos del service principal (clentID, clientSecret), SQL password, SQL DB Host, SQL user y otros como suscripción ID, tenantID.
+### El service principal utilizado tiene el rol de contributir sobre la suscripción.
+### Para el despliegue de la aplicación y la BD se han utilizado manifiestos yaml en el **namespace: todo**
+### Prometeus y Grafana: Han sido desplegados con el uso de Helm en el **namespace prometheus**
+### Se ha utilizado el dashboad ID grafana: 18283 para mostrar las métricas del AKS.
+### 
+
+![](./docs/diagramadeapp.png)
 
 #### Descripción del Proyecto todo-list
 El proyecto consiste en una aplicación tipo "Todo-List" utilizando tecnologías modernas de desarrollo web y operaciones de infraestructura, con un enfoque específico en DevOps. La aplicación estará compuesta por un backend Node.js con Express y una base de datos MySQL. Utilizaremos herramientas como Terraform para la infraestructura como código (IaC), CI/CD para automatización del flujo de trabajo, contenedores Docker para la portabilidad y Kubernetes para la orquestación de contenedores. Además, se incorporarán prácticas de observabilidad para garantizar la monitorización y la resolución proactiva de problemas.
